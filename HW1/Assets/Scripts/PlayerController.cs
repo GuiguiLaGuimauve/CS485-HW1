@@ -17,8 +17,9 @@ public class PlayerController : MonoBehaviour {
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        float jump = Input.GetAxis("Jump") * 15;
+        Debug.Log(jump);
+        Vector3 movement = new Vector3(moveHorizontal, jump, moveVertical);
 
         rb.AddForce(movement * speed);
     }
